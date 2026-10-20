@@ -170,6 +170,7 @@ def main():
     # adjusted), so they are copied from the reference rather than derived; the
     # entries match on several attributes and the app set is family-wide.
     for part in ("vendor", "private"):
+        os.makedirs(os.path.join(dev_sep, part), exist_ok=True)
         src = os.path.join(ref_sep, part, "seapp_contexts")
         if os.path.exists(src):
             with open(src) as f, open(os.path.join(dev_sep, part, "seapp_contexts"), "w") as g:
